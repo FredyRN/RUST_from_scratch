@@ -1,0 +1,6 @@
+[package]
+name = "exercise_build_a_car"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
