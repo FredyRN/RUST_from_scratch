@@ -13,20 +13,20 @@ enum WebEvent { WELoad(bool), WEClick(MouseClick), WEKeys(KeyPress) }
 
 fn main() {
     // Instantiate a MouseClick struct and bind the coordinate values
-    let click = MouseClick{ x: 100, y:250 };
+    let click: MouseClick = MouseClick{ x: 100, y:250 };
     println!("Mouse click location: {}, {}", click.x, click.y);
 
     // Instantiate a KeyPress tuple and bind the key values
-    let keys = KeyPress(String::from("Ctrl+"), 'N');
+    let keys: KeyPress = KeyPress(String::from("Ctrl+"), 'N');
     println!("\nKeys pressed: {}{}", keys.0, keys.1);
 
     // Instantiate WebEvent enum variants
     // Set the boolean page Load value to true
-    let we_load = WebEvent::WELoad(true);
+    let we_load: WebEvent = WebEvent::WELoad(true);
     // Set the WEClick variant to use the data in the click struct
-    let we_click = WebEvent::WEClick(click);
+    let we_click: WebEvent = WebEvent::WEClick(click);
     // Set the WEKeys variant to use the data in the keys tuple
-    let we_key = WebEvent::WEKeys(keys);
+    let we_key: WebEvent = WebEvent::WEKeys(keys);
 
     // Print the values in the WebEvent enum variants
     // use the {:#?} syntax to display the enum structure and data in a readable form
