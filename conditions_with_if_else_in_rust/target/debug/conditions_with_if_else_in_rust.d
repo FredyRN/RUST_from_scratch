@@ -1,0 +1,1 @@
+/media/data/.projects/RUST_from_scratch/conditions_with_if_else_in_rust/target/debug/conditions_with_if_else_in_rust: /media/data/.projects/RUST_from_scratch/conditions_with_if_else_in_rust/src/main.rs
