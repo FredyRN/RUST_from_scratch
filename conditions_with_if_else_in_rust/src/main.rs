@@ -34,4 +34,8 @@ fn main() {
     println!("Fruits: {:?}", fruit);
     // index a vector
     println!("Vector: {:?}, two = {}", fruit, fruit[1]);
+    // To change a value un place
+    println!("Change fruit {} to Watermelon", fruit[1]);
+    fruit[1] = "Watermelon";
+    println!("Fruits: {:?}", fruit);
 }
