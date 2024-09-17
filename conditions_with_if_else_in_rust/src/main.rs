@@ -34,8 +34,43 @@ fn main() {
     println!("Fruits: {:?}", fruit);
     // index a vector
     println!("Vector: {:?}, two = {}", fruit, fruit[1]);
-    // To change a value un place
+    // To change a value in place
     println!("Change fruit {} to Watermelon", fruit[1]);
     fruit[1] = "Watermelon";
     println!("Fruits: {:?}", fruit);
+    println!("++++++++++++++++++++++++++++++++++++++");
+    // An essential part of programming involves making decisions based on the data.
+    // We can  create conditional branches in our code by using the if and else keywords
+    // The if and else keywords are used with expressions to test values and do actions
+    // based on the test result.
+    println!("if/else conditions");
+    // Test if two numbers ar equa or not
+    let number_a: u32 = 23;
+    let number_b: u32 = 23;
+    if number_a == number_b {
+        println!("True, {} is equal to {}", number_a, number_b);
+    } else {
+        println!("False, {} is not equal to {}", number_a, number_b);
+    }
+    // Tesst if a value is true or false (boolean)
+    let formal: bool = false;
+    let greeting: &str = if formal {
+        "Good day to you."
+    } else {
+        "Hey!"
+    };
+    println!("{}", greeting);
+    // We can combine if and else together to form an else if expression.
+    let num: i32 = 500;
+    let out_of_range: bool;
+    if num < 0 {
+        out_of_range = true;
+    } else if num == 0 {
+        out_of_range = true;
+    } else if num > 512 {
+        out_of_range = true;
+    } else {
+        out_of_range = false;
+    }
+    println!("{}", out_of_range);
 }
