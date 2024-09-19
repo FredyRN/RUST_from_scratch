@@ -28,12 +28,24 @@ fn car_quality(miles: u32) -> (Age, u32) {
 fn car_factory(color: Color, motor: Transmission, roof: bool, miles: u32) -> Car {
     // Use the values of the input arguments
     // All new cars always have zero mileage
-    let car_age: (Age, u32) = car_quality(miles);
+    if miles == 0 {
+        if roof {
+            println!("Prepare a new car: {:?}, {:?}, Hard top, {} miles", motor, color, miles);
+        } else {
+            println!("Prepare a new car: {:?}, {:?}, convertible, {} miles", motor, color, miles);
+        }
+    } else {
+        if roof {
+            println!("Prepare a used car: {:?}, {:?}, Hard top, {} miles", motor, color, miles);
+        } else {
+            println!("Prepare a used car: {:?}, {:?}, convertible, {} miles", motor, color, miles);
+        }
+    }
     Car {
         color: color,
         motor: motor,
         roof: roof,
-        age: car_age,
+        age: car_quality(miles),
     }
 }
 
@@ -43,15 +55,15 @@ fn main() {
     // We'll declare a mutable car variable and reuse it for all the cars
     let mut engine: Transmission = Transmission::Manual;
     let mut car: Car = car_factory(Color::Blue, engine, false, 1500);
-    println!("Car 1 = {:?}, {:?} transmission, convertible: {}, age: {:?}", car.color, car.motor, car.roof, car.age);
+    // println!("Car 1 = {:?}, {:?} transmission, convertible: {}, age: {:?}", car.color, car.motor, car.roof, car.age);
     engine = Transmission::Automatic;
     car = car_factory(Color::Green, engine, true, 0);
-    println!("Car 2 = {:?}, {:?} transmission, convertible: {}, age: {:?}", car.color, car.motor, car.roof, car.age);
+    // println!("Car 2 = {:?}, {:?} transmission, convertible: {}, age: {:?}", car.color, car.motor, car.roof, car.age);
     engine = Transmission::SemiAuto;
     car = car_factory(Color::Silver, engine, false, 0);
-    println!("Car 3 = {:?}, {:?} transmission, convertible: {}, age: {:?}", car.color, car.motor, car.roof, car.age);
+    // println!("Car 3 = {:?}, {:?} transmission, convertible: {}, age: {:?}", car.color, car.motor, car.roof, car.age);
     engine = Transmission::Manual;
-    car = car_factory(Color::Red, engine, false, 0);
-    println!("Car 4 = {:?}, {:?} transmission, convertible: {}, age: {:?}", car.color, car.motor, car.roof, car.age);
+    car = car_factory(Color::Red, engine, true, 1520);
+    // println!("Car 4 = {:?}, {:?} transmission, convertible: {}, age: {:?}", car.color, car.motor, car.roof, car.age);
 
 }
