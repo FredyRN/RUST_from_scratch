@@ -7,7 +7,7 @@ enum Transmission {Manual, SemiAuto, Automatic}
 enum Age {New, Used}
 
 #[derive(PartialEq, Debug)]
-enum Color {Blue, Green, Red, Silver}
+enum Color {Blue, Green, Red, Silver, Purple}
 
 #[derive(PartialEq, Debug)]
 // Declare Car struct to describe vehicle with four named fields
@@ -25,21 +25,17 @@ fn car_quality(miles: u32) -> (Age, u32) {
     quality
 }
 
-fn car_factory(color: Color, motor: Transmission, roof: bool, miles: u32) -> Car {
+fn car_factory(color: Color, order: u32, miles: u32) -> Car {
     // Use the values of the input arguments
     // All new cars always have zero mileage
-    if miles == 0 {
-        if roof {
-            println!("Prepare a new car: {:?}, {:?}, Hard top, {} miles", motor, color, miles);
-        } else {
-            println!("Prepare a new car: {:?}, {:?}, convertible, {} miles", motor, color, miles);
-        }
-    } else {
-        if roof {
-            println!("Prepare a used car: {:?}, {:?}, Hard top, {} miles", motor, color, miles);
-        } else {
-            println!("Prepare a used car: {:?}, {:?}, convertible, {} miles", motor, color, miles);
-        }
+    // Add variety to orders for motor type and roof type
+    let mut motor: Transmission = Transmission::Manual;
+    let mut roof: bool = true;
+    if order % 3 == 0 { // 3, 6 ,9
+        motor = Transmission::Automatic;
+    } else if order % 2 == 0 { // 2, 4, 6 ...
+        motor = Transmission::SemiAuto;
+        roof = false;
     }
     Car {
         color: color,
@@ -51,19 +47,26 @@ fn car_factory(color: Color, motor: Transmission, roof: bool, miles: u32) -> Car
 
 
 fn main() {
-    // We haver orders for three new cars!
-    // We'll declare a mutable car variable and reuse it for all the cars
-    let mut engine: Transmission = Transmission::Manual;
-    let mut car: Car = car_factory(Color::Blue, engine, false, 1500);
-    // println!("Car 1 = {:?}, {:?} transmission, convertible: {}, age: {:?}", car.color, car.motor, car.roof, car.age);
-    engine = Transmission::Automatic;
-    car = car_factory(Color::Green, engine, true, 0);
-    // println!("Car 2 = {:?}, {:?} transmission, convertible: {}, age: {:?}", car.color, car.motor, car.roof, car.age);
-    engine = Transmission::SemiAuto;
-    car = car_factory(Color::Silver, engine, false, 0);
-    // println!("Car 3 = {:?}, {:?} transmission, convertible: {}, age: {:?}", car.color, car.motor, car.roof, car.age);
-    engine = Transmission::Manual;
-    car = car_factory(Color::Red, engine, true, 1520);
-    // println!("Car 4 = {:?}, {:?} transmission, convertible: {}, age: {:?}", car.color, car.motor, car.roof, car.age);
-
+    let mut order: u32 = 1;
+    let mut car: Car;
+    let mut color: Color = Color::Blue;
+    // Start orders 
+    car = car_factory(color, order, 1000);
+    println!("{order}: {:?}, Hard top = {}, {:?}, {:?}, {:?} miles.", car.age.0, car.roof, car.color, car.motor, car.age.1);
+    order = order + 1;
+    color = Color::Green;
+    car = car_factory(color, order, 2000);
+    println!("{order}: {:?}, Hard top = {}, {:?}, {:?}, {:?} miles.", car.age.0, car.roof, car.color, car.motor, car.age.1);
+    order = order + 1;
+    color = Color::Purple;
+    car = car_factory(color, order, 0);
+    println!("{order}: {:?}, Hard top = {}, {:?}, {:?}, {:?} miles.", car.age.0, car.roof, car.color, car.motor, car.age.1);
+    order = order + 1;
+    color = Color::Red;
+    car = car_factory(color, order, 3000);
+    println!("{order}: {:?}, Hard top = {}, {:?}, {:?}, {:?} miles.", car.age.0, car.roof, car.color, car.motor, car.age.1);
+    order = order + 1;
+    color = Color::Silver;
+    car = car_factory(color, order, 4000);
+    println!("{order}: {:?}, Hard top = {}, {:?}, {:?}, {:?} miles.", car.age.0, car.roof, car.color, car.motor, car.age.1);
 }
