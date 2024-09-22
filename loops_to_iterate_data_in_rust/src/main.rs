@@ -70,9 +70,13 @@ fn main() {
      * The variable is implicitly declared at the start of the loop expression, and the 
      * current value is set with each iteration.
      */
-    let big_dirds = ["ostrich", "peacock", "stork"];
+    let big_dirds: [&str; 3] = ["ostrich", "peacock", "stork"];
     for bird in big_dirds.iter() {
         println!("The {} is a big bird.", bird);
+    }
+    // Other for example
+    for number in 0..5 {
+        println!("{}", number * 2);
     }
     
 }
