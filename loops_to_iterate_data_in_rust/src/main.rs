@@ -26,4 +26,34 @@ fn main() {
     println!("\"{obsolete}\" removed.");
     reviews.remove(obsolete);
     println!("Review for {obsolete}: {:?}", reviews.get(obsolete));
+    /* Programs often have blocks of code that need to be repeated in place.
+     * We can use loop expressions to  tell the program how to do the repetitions.
+     * To print all entries in a phonebook, we can use a loop expression to tell the
+     * program how to print starting from the first entry all the way through to the last entry.
+     * RUST offers three loop expressions to make a program repeat a block of code.
+    
+     * loop: Repeat, unless a manual stops occurs.
+     * while: Repeat while a condition remains true.
+     * for: Repeat for all values in a collection.
+     */
+    loop {
+        println!("This is an infinite loop expression!");
+        break;
+    }
+    let mut counter: u32 = 1;
+    // stop_loop is set when loop stops
+    let stop_loop = loop {
+        counter *= 2;
+        println!("Counter is {counter}");
+        if counter > 100 {
+            // Stop loop, eturn counter value
+            break counter;
+        }
+    };
+    println!("Break the loop at counter = {stop_loop}");
+    // Loop a while
+    // The while loop uses a condotional expression.
+    // Te loop repeats as long as the conditional expression remains true.
+    // This keyword lets us execute the actions in the expression body until
+    // the conditonal expression is false.
 }
