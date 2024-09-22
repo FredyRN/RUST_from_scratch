@@ -42,18 +42,37 @@ fn main() {
     }
     let mut counter: u32 = 1;
     // stop_loop is set when loop stops
-    let stop_loop = loop {
-        counter *= 2;
-        println!("Counter is {counter}");
-        if counter > 100 {
-            // Stop loop, eturn counter value
-            break counter;
-        }
-    };
-    println!("Break the loop at counter = {stop_loop}");
-    // Loop a while
-    // The while loop uses a condotional expression.
-    // Te loop repeats as long as the conditional expression remains true.
-    // This keyword lets us execute the actions in the expression body until
-    // the conditonal expression is false.
+    // let stop_loop = loop {
+    //     counter *= 2;
+    //     println!("Counter is {counter}");
+    //     if counter > 100 {
+    //         // Stop loop, eturn counter value
+    //         break counter;
+    //     }
+    // };
+    // println!("Break the loop at counter = {stop_loop}");
+    /* Loop a while
+     *  The while loop uses a condotional expression.
+     *  Te loop repeats as long as the conditional expression remains true.
+     *  This keyword lets us execute the actions in the expression body until
+     *  the conditonal expression is false. 
+     */
+    while counter < 5 {
+        println!("We loop a while {counter} times...");
+        counter = counter + 1;
+    }
+    /*
+     * The for loop uses an iterator to process a collection of items.
+     * The loop repeats the actions in the expression body for each item in the collection.
+     * In Rust, we can iterate oer any collection type, such as an array, vector, or hash map.
+     * Rust uses an iterator to move through each item in the collection from first to last.
+     * The for loop uses a temporry variable as the iterator.
+     * The variable is implicitly declared at the start of the loop expression, and the 
+     * current value is set with each iteration.
+     */
+    let big_dirds = ["ostrich", "peacock", "stork"];
+    for bird in big_dirds.iter() {
+        println!("The {} is a big bird.", bird);
+    }
+    
 }
