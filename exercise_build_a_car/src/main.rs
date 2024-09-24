@@ -15,12 +15,13 @@ enum Color {Blue, Green, Red, Silver, Purple}
 // Declare Car struct to describe vehicle with four named fields
 struct Car {color: Color, motor: Transmission, roof: bool, age: (Age, u32)}
 
-fn orders(order: u32, car: Car) -> HashMap<u32, Car> {
-    // Declare orders HashMap
-    let mut orders: HashMap<u32, Car> = HashMap::new();
-    orders.insert(order, car);
-    orders
-}
+// fn orders(order: u32, car: Car) -> HashMap<u32, Car> {
+//     // Declare orders HashMap
+//     let mut orders: HashMap<u32, Car> = HashMap::new();
+//     orders.insert(order, car);
+//     println!("{:?}", orders);
+//     orders
+// }
 
 fn car_quality(miles: u32) -> (Age, u32) {
     // Declare and initialize the return tuple value
@@ -40,7 +41,7 @@ fn car_factory(color: Color, order: u32, miles: u32) -> Car {
     // Add variety to orders for motor type and roof type
     let mut motor: Transmission = Transmission::Manual;
     let mut roof: bool = true;
-    if order % 3 == 0 { // 3, 6 ,9
+    if order % 3 == 0 { // 3, 6 ,9 ...
         motor = Transmission::Automatic;
     } else if order % 2 == 0 { // 2, 4, 6 ...
         motor = Transmission::SemiAuto;
@@ -58,34 +59,52 @@ fn main() {
     let mut order: u32 = 1;
     let mut car: Car;
     let mut color: Color = Color::Blue;
-    let mut corders:HashMap<u32, Car>;
+    // Declare orders HashMap
+    let mut orders: HashMap<u32, Car> = HashMap::new();
     // Start orders 
     car = car_factory(color, order, 1000);
-    corders = orders(order, car);
-    println!("Car order {order}: {:?}", corders.get(&order));
+    orders.insert(order, car);
     order = order + 1;
     color = Color::Green;
     car = car_factory(color, order, 2000);
-    corders = orders(order, car);
-    println!("Car order {order}: {:?}", corders.get(&order));
-    order = order + 1;
-    color = Color::Purple;
-    car = car_factory(color, order, 0);
-    corders = orders(order, car);
-    println!("Car order {order}: {:?}", corders.get(&order));
+    orders.insert(order, car);
     order = order + 1;
     color = Color::Red;
-    car = car_factory(color, order, 0);
-    corders = orders(order, car);
-    println!("Car order {order}: {:?}", corders.get(&order));
+    car = car_factory(color, order, 2000);
+    orders.insert(order, car);
     order = order + 1;
     color = Color::Silver;
-    car = car_factory(color, order, 3000);
-    corders = orders(order, car);
-    println!("Car order {order}: {:?}", corders.get(&order));
+    car = car_factory(color, order, 2000);
+    orders.insert(order, car);
+    order = order + 1;
+    color = Color::Purple;
+    car = car_factory(color, order, 2000);
+    orders.insert(order, car);
     order = order + 1;
     color = Color::Green;
-    car = car_factory(color, order, 4000);
-    corders = orders(order, car);
-    println!("Car order {order}: {:?}", corders.get(&order));
+    car = car_factory(color, order, 2000);
+    orders.insert(order, car);
+    order = order + 1;
+    color = Color::Green;
+    car = car_factory(color, order, 2000);
+    orders.insert(order, car);
+    order = order + 1;
+    color = Color::Green;
+    car = car_factory(color, order, 2000);
+    orders.insert(order, car);
+    order = order + 1;
+    color = Color::Green;
+    car = car_factory(color, order, 2000);
+    orders.insert(order, car);
+    order = order + 1;
+    color = Color::Green;
+    car = car_factory(color, order, 2000);
+    orders.insert(order, car);
+    order = order + 1;
+    color = Color::Green;
+    car = car_factory(color, order, 2000);
+    orders.insert(order, car);
+    for (order, vehicle) in &orders {
+        println!("{order:?} {vehicle:?}");
+    }
 }
