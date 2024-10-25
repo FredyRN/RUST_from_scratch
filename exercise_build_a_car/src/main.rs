@@ -101,10 +101,10 @@ fn main() {
     car = car_factory(color, order, 2000);
     orders.insert(order, car);
     order = order + 1;
-    color = Color::Green;
+    color = Color::Purple;
     car = car_factory(color, order, 2000);
     orders.insert(order, car);
     for (order, vehicle) in &orders {
-        println!("{order:?} {vehicle:?}");
+        println!("Car order {order:?}: {vehicle:?}");
     }
 }
