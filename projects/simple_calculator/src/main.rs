@@ -40,11 +40,11 @@ fn main() {
             "*" => n1 * n2,
             "/" => {
                 if n2 == 0.0 {
-                    println!("Error divided by zero.");
-                    continue
+                    println!("Error division by zero");
+                    continue;
                 }
                 n1 / n2
-            }
+            },
             _ => {
                 println!("Invalid operator. Use valid one only [+, -, *, /]");
                 continue;
