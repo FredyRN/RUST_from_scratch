@@ -1,12 +1,12 @@
-// RUST provides the Result<T, E> enum for returning and propagating errors.
-// By convention, the OK(T) variant represents a success and contains a value, and
-// the variant Err(E) represents an error and contains an error value.
+/// RUST provides the Result<T, E> enum for returning and propagating errors.
+/// By convention, the OK(T) variant represents a success and contains a value, and
+/// the variant Err(E) represents an error and contains an error value.
 
-// The Result<T, E> enum is defined as:
-// enum Result<T, E> {
-//     OK(T), // A value T was obtained
-//     Err(E), // An error of type E was encountered instead.
-// }
+/// The Result<T, E> enum is defined as:
+/// enum Result<T, E> {
+///     OK(T), // A value T was obtained
+///     Err(E), // An error of type E was encountered instead.
+/// }
 
 #[derive(Debug)]
 struct DivisionByZeroError;
