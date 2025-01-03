@@ -36,7 +36,7 @@ fn fibo(n: usize) -> BigUint {
 fn main() {
     println!("Welcome to fibonacci generator.");
     println!("Write a number or '0' to finish program.");
-    println!("Write the number to get fibonacci: ");
+    println!("Write the number to calculate Fibonacci: ");
     loop {
         let mut xn = String::new();
         io::stdin()
@@ -56,5 +56,6 @@ fn main() {
         };
         println!("Fibonacci({number}) = {}", fibo(number));
         println!("====+====+====+====+====");
+        println!("Write another number to calculate Fibonacci: ");
     }
 }
